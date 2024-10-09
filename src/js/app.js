@@ -34,11 +34,22 @@ function render(variables = {}) {
     posicionIconos = `<ul class="position-left">`;
   }
 
+  let nombre = variables.name;
+  let apellido = variables.lastName;
+
+  if (variables.name == null) {
+    nombre = "&nbsp;";
+  }
+
+  if (variables.lastName == null) {
+    apellido = "&nbsp;";
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
+          <h1>${nombre + " " + apellido}</h1>
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
           ${posicionIconos}
