@@ -35,14 +35,33 @@ function render(variables = {}) {
   }
 
   let nombre = variables.name;
-  let apellido = variables.lastName;
-
   if (variables.name == null) {
     nombre = "&nbsp;";
   }
 
+  let apellido = variables.lastName;
   if (variables.lastName == null) {
     apellido = "&nbsp;";
+  }
+
+  let twit = `"https://twitter.com/${variables.twitter}"`;
+  if (variables.twitter == null) {
+    twit = "https://twitter.com";
+  }
+
+  let git = `"https://github.com/${variables.github}`;
+  if (variables.github == null) {
+    git = "https://github.com";
+  }
+
+  let lkndn = `"https://linkedin.com/${variables.linkedin}"`;
+  if (variables.linkedin == null) {
+    lkndn = "https://linkedin.com";
+  }
+
+  let insta = `"https://instagram.com/${variables.instagram}"`;
+  if (variables.instagram == null) {
+    insta = "https://instagram.com";
   }
 
   // reset the website body with the new html output
@@ -53,10 +72,10 @@ function render(variables = {}) {
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
           ${posicionIconos}
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+            <li><a href=${twit}><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${git}<i class="fab fa-github"></i></a></li>
+            <li><a href=${lkndn}<i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${insta}<i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
