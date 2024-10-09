@@ -29,6 +29,11 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let posicionIconos = `<ul class="position-right">`;
+  if (variables.socialMediaPosition == "position-left") {
+    posicionIconos = `<ul class="position-left">`;
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
