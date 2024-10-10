@@ -29,18 +29,84 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let posicionIconos = `<ul class="position-right">`;
+  if (variables.socialMediaPosition == "position-left") {
+    posicionIconos = `<ul class="position-left">`;
+  }
+
+  let nombre = variables.name;
+  if (variables.name == null) {
+    nombre = "&nbsp;";
+  }
+
+  let apellido = variables.lastName;
+  if (variables.lastName == null) {
+    apellido = "&nbsp;";
+  }
+
+  let twit = `"https://twitter.com/${variables.twitter}"`;
+  if (variables.twitter == null) {
+    twit = "https://twitter.com";
+  }
+
+  let git = `"https://github.com/${variables.github}`;
+  if (variables.github == null) {
+    git = "https://github.com";
+  }
+
+  let lkndn = `"https://linkedin.com/${variables.linkedin}"`;
+  if (variables.linkedin == null) {
+    lkndn = "https://linkedin.com";
+  }
+
+  let insta = `"https://instagram.com/${variables.instagram}"`;
+  if (variables.instagram == null) {
+    insta = "https://instagram.com";
+  }
+
+  let rol = variables.role;
+  if (variables.role == "Web Developer") {
+    rol = "Web Developer";
+  } else if (variables.role == "Floor Planner") {
+    rol = "Floor Planner";
+  } else if (variables.role == "Technical Writter") {
+    rol = "Technical Writter";
+  } else rol = "&nbsp;";
+
+  let ciudad = variables.city;
+  if (variables.city == "Miami") {
+    ciudad = "Miami";
+  } else if (variables.city == "Munich") {
+    ciudad = "Munich";
+  } else if (variables.city == "Caracas") {
+    ciudad = "Caracas";
+  } else if (variables.city == "Toronto") {
+    ciudad = "Toronto";
+  } else ciudad = "&nbsp;";
+
+  let pais = variables.country;
+  if (variables.country == "USA") {
+    pais = "USA";
+  } else if (variables.country == "Germany") {
+    pais = "Germany";
+  } else if (variables.country == "Canada") {
+    pais = "Canada";
+  } else if (variables.country == "Venezuela") {
+    pais = "Venezuela";
+  } else pais = "&nbsp;";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${nombre + " " + apellido}</h1>
+          <h2>${rol}</h2>
+          <h3>${ciudad}, ${pais}</h3>
+          ${posicionIconos}
+            <li><a href=${twit}><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${git}<i class="fab fa-github"></i></a></li>
+            <li><a href=${lkndn}<i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${insta}<i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
