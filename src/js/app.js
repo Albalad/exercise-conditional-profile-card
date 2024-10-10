@@ -64,13 +64,44 @@ function render(variables = {}) {
     insta = "https://instagram.com";
   }
 
+  let rol = variables.role;
+  if (variables.role == "Web Developer") {
+    rol = "Web Developer";
+  } else if (variables.role == "Floor Planner") {
+    rol = "Floor Planner";
+  } else if (variables.role == "Technical Writter") {
+    rol = "Technical Writter";
+  } else rol = "&nbsp;";
+
+  let ciudad = variables.city;
+  if (variables.city == "Miami") {
+    ciudad = "Miami";
+  } else if (variables.city == "Munich") {
+    ciudad = "Munich";
+  } else if (variables.city == "Caracas") {
+    ciudad = "Caracas";
+  } else if (variables.city == "Toronto") {
+    ciudad = "Toronto";
+  } else ciudad = "&nbsp;";
+
+  let pais = variables.country;
+  if (variables.country == "USA") {
+    pais = "USA";
+  } else if (variables.country == "Germany") {
+    pais = "Germany";
+  } else if (variables.country == "Canada") {
+    pais = "Canada";
+  } else if (variables.country == "Venezuela") {
+    pais = "Venezuela";
+  } else pais = "&nbsp;";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${nombre + " " + apellido}</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h2>${rol}</h2>
+          <h3>${ciudad}, ${pais}</h3>
           ${posicionIconos}
             <li><a href=${twit}><i class="fab fa-twitter"></i></a></li>
             <li><a href=${git}<i class="fab fa-github"></i></a></li>
